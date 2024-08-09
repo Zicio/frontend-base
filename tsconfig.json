@@ -4,7 +4,7 @@
     "noImplicitAny": true, // запрещает неявное указание типа
     "module": "ESNext",
     "target": "es5", // версия для компиляции
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true, // позволяет обрабатывать также js файлы
     "moduleResolution": "node",
     "baseUrl": ".",
