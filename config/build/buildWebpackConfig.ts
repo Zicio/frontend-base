@@ -21,7 +21,7 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
     plugins: buildPlugins(paths.html),
     module: {
       // Конфигурация лоадеров для обработки файлов (не JS)
-      rules: buildLoaders(),
+      rules: buildLoaders(isDev),
     },
     resolve: buildResolvers(),
     devtool: isDev ? "inline-source-map" : undefined, // для возможности обнаружения места ошибки

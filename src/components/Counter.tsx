@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import "./Counter.scss";
+import styles from "./Counter.module.scss";
 
 interface CounterProps {
   className?: string;
@@ -12,7 +12,7 @@ export const Counter: FC<CounterProps> = ({ className }) => {
   };
   return (
     <div className={className}>
-      <span>{count}</span>
+      <span className={styles.num}>{count}</span>
       <button onClick={increment}>increment</button>
     </div>
   );
