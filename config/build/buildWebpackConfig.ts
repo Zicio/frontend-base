@@ -3,9 +3,10 @@ import { BuildOptions } from "./types/config";
 import { buildLoaders } from "./buildLoaders";
 import { buildPlugins } from "./buildPlugins";
 import { buildResolvers } from "./buildResolvers";
+import { buildDevServer } from "./buildDevServer";
 
 export function buildWebpackConfig(options: BuildOptions): Configuration {
-  const { mode, paths, isDev } = options;
+  const { mode, paths, isDev, port } = options;
   return {
     // Тип сборки (при development нет минификации кода)
     mode,
@@ -23,5 +24,7 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
       rules: buildLoaders(),
     },
     resolve: buildResolvers(),
+    devtool: isDev ? "inline-source-map" : undefined, // для возможности обнаружения места ошибки
+    devServer: isDev ? buildDevServer(port) : undefined,
   };
 }
